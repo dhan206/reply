@@ -8,8 +8,8 @@ var get_interface = function(stdin, stdout) {
 
 /**
  * Prompts the user with a yes-answer/no-answer question.
- * @param {String} message - The message that is displayed when requesting user input.
- * @param {String} callback - The callback function that is called after the user answers the message.
+ * @param {string} message - The message that is displayed when requesting user input.
+ * @param {string} callback - The callback function that is called after the user answers the message.
  */
 var confirm = exports.confirm = function(message, callback) {
 
@@ -31,8 +31,8 @@ var confirm = exports.confirm = function(message, callback) {
 /**
  * Prompts the user with a list of quetions and displays the answers afterwards
  * validates the user's input of the type and depends_on conditions
- * @param {String} options - An object containing the array of accepted answers from the user
- * @param {String} callback - The callback function that is called after the user answers the message
+ * @param {string} options - An object containing the array of accepted answers from the user
+ * @param {string} callback - The callback function that is called after the user answers the message
  * @returns {callback} callback - Returns a list of answers after the user has answered the provided questions
  */
 var get = exports.get = function(options, callback) {
