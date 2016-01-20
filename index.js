@@ -8,6 +8,7 @@ var get_interface = function(stdin, stdout) {
 
 /**
  * Prompts the user with a yes-answer/no-answer question.
+ * @function
  * @param {string} message - The message that is displayed when requesting user input.
  * @param {string} callback - The callback function that is called after the user answers the message.
  */
@@ -28,12 +29,13 @@ var confirm = exports.confirm = function(message, callback) {
 
 };
 
+
 /**
  * Prompts the user with a list of quetions and displays the answers afterwards
  * validates the user's input of the type and depends_on conditions
+ * @function
  * @param {string} options - An object containing the array of accepted answers from the user
  * @param {string} callback - The callback function that is called after the user answers the message
- * @callback callback - Returns a list of answers after the user has answered the provided questions, or error
  */
 var get = exports.get = function(options, callback) {
 
@@ -107,7 +109,7 @@ var get = exports.get = function(options, callback) {
     if (options[key].options)
         str += ' (options are ' + options[key].options.join(', ') + ')';
 
-    //stdout.write("\033[31m" + str + "\033[0m" + "\n");
+    stdout.write("\033[31m" + str + "\033[0m" + "\n");
   }
 
   // displays a message to the user if there is one, shows options
@@ -120,7 +122,7 @@ var get = exports.get = function(options, callback) {
     if (options[key].options)
       msg += '(options are ' + options[key].options.join(', ') + ')';
 
-    //if (msg != '') stdout.write("\033[1m" + msg + "\033[0m\n");
+    if (msg != '') stdout.write("\033[1m" + msg + "\033[0m\n");
   }
 
   // taken from commander lib
@@ -145,7 +147,7 @@ var get = exports.get = function(options, callback) {
         buf = buf.substr(0, buf.length-1);
         var masked = '';
         for (i = 0; i < buf.length; i++) { masked += mask; }
-        //stdout.write('\r\033[2K' + prompt + masked);
+        stdout.write('\r\033[2K' + prompt + masked);
       } else {
         stdout.write(mask);
         buf += c;
